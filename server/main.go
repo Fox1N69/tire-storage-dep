@@ -1,17 +1,18 @@
 package main
 
 import (
+	"api/api/database"
+	"api/api/routers"
 	"log"
 
-	"github.com/gofiber/fiber/v3"
+	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
 	app := fiber.New()
 
-	app.Get("/user", func(c fiber.Ctx) error {
-		return c.SendString("Hello world")
-	})
+	routers.Setup(app)
 
 	log.Fatal(app.Listen(":4000"))
+	database.Connection()
 }
