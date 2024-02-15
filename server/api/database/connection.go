@@ -1,6 +1,7 @@
 package database
 
 import (
+	"api/api/models"
 	"log"
 
 	"gorm.io/driver/sqlite"
@@ -8,7 +9,12 @@ import (
 )
 
 func Connection() {
-	if _, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{}); err != nil {
-		log.Fatal(err, "Error connection to database")
+	db, err := gorm.Open(sqlite.Open("user.db"), &gorm.Config{
+		DisableForeignKeyConstraintWhenMigrating: true,
+	})
+	if err != nil {
+		log.Fatal(err)
 	}
+
+	db.AutoMigrate(&models.User{})
 }
