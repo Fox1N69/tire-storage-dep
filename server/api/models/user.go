@@ -1,7 +1,7 @@
 package models
 
 type User struct {
-	Id       string
+	Id       uint
 	Name     string
 	Email    string `gorm: "unique"`
 	Password string

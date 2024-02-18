@@ -9,12 +9,11 @@ import (
 )
 
 func Connection() {
-	db, err := gorm.Open(sqlite.Open("user.db"), &gorm.Config{
-		DisableForeignKeyConstraintWhenMigrating: true,
-	})
+	db, err := gorm.Open(sqlite.Open("user.db"), &gorm.Config{})
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	db.AutoMigrate(&models.User{})
+	db.Migrator().CreateTable(&models.User{})
+	db.Debug().AutoMigrate(&models.User{})
 }

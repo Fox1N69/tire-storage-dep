@@ -8,5 +8,5 @@ import (
 
 func Setup(app *fiber.App) {
 	app.Get("/api/register", controller.Register)
+	app.Post("/api/clients", controller.Clients)
 }
-
