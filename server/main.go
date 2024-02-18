@@ -14,5 +14,6 @@ func main() {
 	routers.Setup(app)
 
 	log.Fatal(app.Listen(":4000"))
-	database.Connection()
+
+	database.Connection() 
 }

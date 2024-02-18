@@ -4,6 +4,7 @@ go 1.21.7
 
 require (
 	github.com/andybalholm/brotli v1.1.0 // indirect
+	github.com/go-sql-driver/mysql v1.7.1 // indirect
 	github.com/gofiber/fiber/v2 v2.52.0 // indirect
 	github.com/gofiber/utils/v2 v2.0.0-beta.3 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
@@ -29,6 +30,7 @@ require (
 	golang.org/x/sync v0.6.0 // indirect
 	golang.org/x/sys v0.17.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
+	gorm.io/driver/mysql v1.5.4 // indirect
 	gorm.io/driver/postgres v1.5.6 // indirect
 	gorm.io/driver/sqlite v1.5.5 // indirect
 	gorm.io/gorm v1.25.7 // indirect
