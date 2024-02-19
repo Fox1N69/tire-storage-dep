@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import "@/app/sass/index.scss";
 
+
 export default function Home() {
   return (
     <section className="py-24">
