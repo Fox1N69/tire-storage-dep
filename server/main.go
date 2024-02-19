@@ -1,9 +1,10 @@
 package main
 
 import (
-	"api/api/database"
 	"api/api/routers"
 	"log"
+
+	"api/api/database"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -15,5 +16,5 @@ func main() {
 
 	log.Fatal(app.Listen(":4000"))
 
-	database.Connection() 
+	database.Connection()
 }

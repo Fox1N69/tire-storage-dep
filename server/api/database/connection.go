@@ -1,6 +1,7 @@
 package database
 
 import (
+	"api/api/models"
 	"fmt"
 	"log"
 
@@ -18,4 +19,5 @@ func Connection() {
 	} else {
 		fmt.Print("Databases connect...")
 	}
+	DB.AutoMigrate(&models.User{})
 }
