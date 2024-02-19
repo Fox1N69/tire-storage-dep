@@ -4,20 +4,38 @@ import (
 	"api/api/models"
 	"fmt"
 	"log"
+	"time"
 
 	"gorm.io/driver/postgres"
+
 	"gorm.io/gorm"
 )
 
-var dsn = "user=postgres password=8008 dbname=makar-deplom port=5432 sslmode=disable"
+var dsn = "user=postgres password=8008 dbname=deplom-makar sslmode=disable"
 var DB *gorm.DB
 
-func Connection() {
-	DB, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+func Connection() *gorm.DB {
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal(err)
-	} else {
-		fmt.Print("Databases connect...")
 	}
-	DB.AutoMigrate(&models.User{})
+
+	DB = db
+
+	db.AutoMigrate(&models.User{})
+	return db
+}
+
+func GetDB() *gorm.DB {
+	if DB == nil {
+		DB = Connection()
+		var sleep = time.Duration(1)
+		for DB == nil {
+			sleep = sleep * 2
+			fmt.Println("database is unavaibel. Wait for %d sec.\n")
+			time.Sleep(sleep * time.Second)
+			DB = Connection()
+		}
+	}
+	return DB
 }
