@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import "@/app/sass/index.scss";
 
-
 export default function Home() {
   return (
     <section className="py-24">
@@ -16,6 +15,9 @@ export default function Home() {
           </Button>
           <Button asChild className=" w-34">
             <Link href="/storagerequests">Работа с заявками</Link>
+          </Button>
+          <Button asChild className="w-34">
+            <Link href="/auth/register">Регестрация</Link>
           </Button>
         </div>
       </div>
