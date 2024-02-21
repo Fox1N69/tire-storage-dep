@@ -5,5 +5,6 @@ import (
 )
 
 func Clients(c *fiber.Ctx) error {
-	return c.SendString("Hello Clients page")
+
+	return nil
 }
