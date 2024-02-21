@@ -2,7 +2,6 @@ package database
 
 import (
 	"api/api/models"
-	"fmt"
 	"log"
 	"time"
 
@@ -32,7 +31,7 @@ func GetDB() *gorm.DB {
 		var sleep = time.Duration(1)
 		for DB == nil {
 			sleep = sleep * 2
-			fmt.Println("database is unavaibel. Wait for %d sec.\n")
+			log.Print("database is unavaibel. Wait for %d sec.\n")
 			time.Sleep(sleep * time.Second)
 			DB = Connection()
 		}
